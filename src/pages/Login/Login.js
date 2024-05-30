@@ -13,8 +13,22 @@ const Login = () => {
     event.preventDefault();
     setLoading(true);
     if(signState==='Sign In'){
+      if(password.trim().length<6){
+         alert('give 6 letter password')
+      return  setLoading(false);
+
+      } 
       await login(email,password);
     }else{
+      if(name.trim().length<4){
+        alert('give atleast 4 letter to name')
+        return  setLoading(false);
+      }
+      if(password.trim().length<6){
+        alert('give 6 letter password')
+     return  setLoading(false);
+
+     } 
       await signup(name,email,password);
     }
     setLoading(false);
